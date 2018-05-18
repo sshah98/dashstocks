@@ -11,8 +11,10 @@ from dash.dependencies import Input, Output
 from pandas_datareader._utils import RemoteDataError
 from flask import Flask
 
-app = dash.Dash(__name__)
-server = app.server
+server = Flask(__name__)
+
+app = dash.Dash(name = __name__, server = server)
+app.config.supress_callback_exceptions = True
 
 
 app.layout = html.Div(children=[
