@@ -42,10 +42,10 @@ def update_graph(input_data):
 
         start = datetime.datetime(2015, 1, 1)
         end = datetime.datetime.now()
-        df = web.DataReader(input_data, 'morningstar', start, end)
-        df.reset_index(inplace=True)
-        df.set_index('Date', inplace=True)
-        df = df.drop("Symbol", axis=1)
+        df = web.DataReader(input_data, 'quandl', start, end, api_key='s8Ykh4PAhXmNFd-2BmnY')
+        # df.reset_index(inplace=True)
+        # df.set_index('Date', inplace=True)
+        # df = df.drop("Symbol", axis=1)
 
         return dcc.Graph(
             id='example-graph',
