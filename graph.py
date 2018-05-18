@@ -42,7 +42,7 @@ def update_graph(input_data):
 
         start = datetime.datetime(2015, 1, 1)
         end = datetime.datetime.now()
-        df = web.DataReader(input_data, 'quandl', start, end, api_key='s8Ykh4PAhXmNFd-2BmnY')
+        df = web.DataReader(input_data, 'quandl', start, end, 's8Ykh4PAhXmNFd-2BmnY')
         # df.reset_index(inplace=True)
         # df.set_index('Date', inplace=True)
         # df = df.drop("Symbol", axis=1)
@@ -66,6 +66,8 @@ def update_graph(input_data):
         else:
             return "Incorrect Ticker"
 
+    except RemoteDataError:
+        return "Data unavailable for requested ticker"
 
 if __name__ == '__main__':
     app.run_server(debug=True)
