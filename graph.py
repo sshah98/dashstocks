@@ -62,8 +62,9 @@ def update_graph(input_data):
             return "Please type a ticker, in CAPS"
         else:
             return "Incorrect Ticker"
-    except RemoteDataError:
-        return "Data unavailable for requested ticker"
+    except RemoteDataError as e:
+        return e
+        # return "Data unavailable for requested ticker"
 
 
 if __name__ == '__main__':
